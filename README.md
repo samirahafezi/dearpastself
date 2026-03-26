@@ -98,7 +98,20 @@ npx expo start
 
 ---
 
+## Data Storage
+
+**All data is stored locally on the device** using AsyncStorage — there is no backend, no database, and no server connected to this app.
+
+What this means in practice:
+- The 30 sample messages are hardcoded into the app and appear for everyone
+- Any advice a user writes is saved only on their own device
+- Nobody else can see what you submit
+- Deleting the app deletes your submissions permanently
+
+This is a fun personal project and a work in progress. A future version may connect to a shared backend so submissions are visible to all users.
+
+---
+
 ## Notes
 
-- This version stores data locally on each device. A future version will sync submissions across users via a shared backend.
 - Expo SDK 54 is required to match the current Expo Go release.

@@ -2,49 +2,38 @@
 
 A mobile app where people share advice they'd give to their past selves. Browse through wisdom from others by swiping, or add your own note across time.
 
-Built with React Native and Expo. Works on iOS, Android, and macOS from a single codebase.
+Built with React Native and Expo. Works on iOS, Android, and web from a single codebase.
+
+Live at: https://samirahafezi.github.io/dearpastself/
 
 ---
 
-## Screenshots
-
-Read screen — swipe through advice cards  
-Write screen — submit your own wisdom
-
----
-
-## Prerequisites
-
-- [Node.js](https://nodejs.org) (LTS version recommended)
-- [Expo Go](https://expo.dev/go) installed on your phone (iOS or Android)
-
----
-
-## Getting Started
-
-### 1. Clone the repo
-
-```bash
-git clone https://github.com/yourusername/dearpastself.git
-cd dearpastself
-```
-
-### 2. Install dependencies
+## Dev
 
 ```bash
 npm install --legacy-peer-deps
-```
-
-### 3. Start the development server
-
-```bash
 npx expo start
 ```
 
-### 4. Open on your device
+- Press `i` for iOS Simulator, `a` for Android Emulator, or `w` for browser
+- For mobile device: scan the QR code with Expo Go (phone and computer must be on the same WiFi)
 
-- Scan the QR code in your terminal with your phone camera (iOS) or the Expo Go app (Android)
-- Your phone and computer must be on the same WiFi network
+---
+
+## Deploying to GitHub Pages
+
+The `docs/` folder is the static web build served by GitHub Pages (from the `main` branch `/docs` folder).
+
+After making changes, rebuild and push:
+
+```bash
+npm run build:web
+git add docs
+git commit -m "Rebuild"
+git push
+```
+
+GitHub Pages will update automatically within a minute or two.
 
 ---
 
@@ -53,65 +42,8 @@ npx expo start
 ```
 dearpastself/
 ├── App.js          # Main app — all screens and components
-├── index.js        # Entry point (registers the root component)
+├── index.js        # Entry point
 ├── app.json        # Expo configuration
 ├── package.json    # Dependencies
-├── babel.config.js # Babel config for Expo
 └── assets/         # Icons and splash screen images
 ```
-
----
-
-## Features
-
-- **Read** — swipe left or right through advice cards
-- **Write** — submit advice for a specific age, with your current age, an optional name, and a signature line
-- **Persistent storage** — submissions are saved locally on device via AsyncStorage
-- **200 character limit** — keeps advice concise and readable
-- **Dark mode** — warm dark theme throughout
-
----
-
-## Running on Simulator
-
-**iOS Simulator** (requires Xcode on Mac):
-```bash
-npx expo start
-# Press 'i' in the terminal
-```
-
-**Android Emulator** (requires Android Studio):
-```bash
-npx expo start
-# Press 'a' in the terminal
-```
-
----
-
-## Dependencies
-
-| Package | Purpose |
-|---|---|
-| `expo` | Core Expo SDK |
-| `react-native` | Mobile UI framework |
-| `@react-native-async-storage/async-storage` | Local data persistence |
-
----
-
-## Data Storage
-
-**All data is stored locally on the device** using AsyncStorage — there is no backend, no database, and no server connected to this app.
-
-What this means in practice:
-- The 30 sample messages are hardcoded into the app and appear for everyone
-- Any advice a user writes is saved only on their own device
-- Nobody else can see what you submit
-- Deleting the app deletes your submissions permanently
-
-This is a fun personal project and a work in progress. A future version may connect to a shared backend so submissions are visible to all users.
-
----
-
-## Notes
-
-- Expo SDK 54 is required to match the current Expo Go release.
